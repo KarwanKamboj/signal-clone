@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #f6f8fa;
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-hover: #f1f3f5;
+    --bg-incoming: #f0f2f5;
+    --bg-outgoing: #2c6bed;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-subtle: #e2e8f0;
+  }
+
+  .dark {
+    --bg-canvas: #090a0f;
+    --bg-sidebar: #11131a;
+    --bg-card: #171a23;
+    --bg-hover: #1e2230;
+    --bg-incoming: #1b1e2a;
+    --bg-outgoing: linear-gradient(135deg, #2c6bed 0%, #1d52c7 100%);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-subtle: #232838;
+  }
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Glassmorphism utilities */
+.glass-header {
+  background: rgba(17, 19, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-modal {
+  background: rgba(23, 26, 35, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Animations */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.98); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
+
+/* Chat bubble styling */
+.bubble-shadow-outgoing {
+  box-shadow: 0 4px 14px rgba(44, 107, 237, 0.25);
+}
+
+.bubble-shadow-incoming {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
