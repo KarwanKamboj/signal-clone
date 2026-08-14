@@ -4,6 +4,11 @@ A fullstack real-time messaging application built to replicate Signal's core wor
 
 ---
 
+## Live Demo
+
+- **Frontend:** [https://signal-clone-woad-eta.vercel.app](https://signal-clone-woad-eta.vercel.app)
+- **Backend API Docs:** [https://signal-clone-rmax.onrender.com/docs](https://signal-clone-rmax.onrender.com/docs)
+
 ## 🛠️ Architecture & Tech Stack
 
 - **Frontend**: Next.js 16 (App Router), TypeScript, Tailwind CSS, Lucide Icons
@@ -33,44 +38,56 @@ A fullstack real-time messaging application built to replicate Signal's core wor
 ## 🚀 Setup & Execution Guide
 
 ### Prerequisites
+
 - Node.js v18+ and npm
-- Python 3.10+
+- Python 3.11+
+- Windows Command Prompt or PowerShell
 
 ### 1. Backend Setup & Run
 
-Navigate to the `backend` directory:
-```bash
+From the project root directory, navigate to the backend:
+
+```cmd
 cd backend
 ```
 
-Create Python virtual environment and install dependencies:
-```bash
-python3 -m venv venv
-./venv/bin/pip install -r requirements.txt
+Create and activate a Python virtual environment:
+
+```cmd
+py -3.11 -m venv venv
+venv\Scripts\Activate
 ```
 
-Seed initial database (Users, Contacts, Direct & Group Chats):
-```bash
-./venv/bin/python seed.py
+Install dependencies:
+
+```cmd
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
 Start the FastAPI server:
-```bash
-./venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+```cmd
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-*API Swagger Docs available at `http://localhost:8000/docs`*
+
+API documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+> Demo users, contacts, chats, and messages are seeded automatically when the backend starts.
 
 ---
 
 ### 2. Frontend Setup & Run
 
-In a second terminal window, navigate to the `frontend` directory:
-```bash
+Open a second terminal from the project root directory:
+
+```cmd
 cd frontend
 npm install
 npm run dev
 ```
-Open **[http://localhost:3000](http://localhost:3000)** in your web browser.
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -78,12 +95,12 @@ Open **[http://localhost:3000](http://localhost:3000)** in your web browser.
 
 Select any quick profile on login or enter phone number with OTP `123456`:
 
-| Name | Phone Number | Username | Role / About |
-| :--- | :--- | :--- | :--- |
-| **Rohit** | `+919876543210` | `rohit` | Fullstack Lead |
-| **Karwan** | `+919811223344` | `karwan` | Backend Systems Engineer |
-| **Ananya Sharma** | `+919822334455` | `ananya_s` | Frontend Engineer |
-| **Karan Malhotra** | `+919833445566` | `karan_m` | Systems Architect & DevOps |
+| Name               | Phone Number    | Username   | Role / About               |
+| :----------------- | :-------------- | :--------- | :------------------------- |
+| **Rohit**          | `+919876543210` | `rohit`    | Fullstack Lead             |
+| **Karwan**         | `+919811223344` | `karwan`   | Backend Systems Engineer   |
+| **Ananya Sharma**  | `+919822334455` | `ananya_s` | Frontend Engineer          |
+| **Karan Malhotra** | `+919833445566` | `karan_m`  | Systems Architect & DevOps |
 
 ---
 
